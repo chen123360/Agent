@@ -1,0 +1,135 @@
+2026-03-18 17:35:04,684 - agent - ERROR - file_handler.py:66 - [返回指定类型文件的文件列表]路径data不是文件夹
+2026-03-18 17:35:04,684 - agent - ERROR - file_handler.py:22 - [md5计算]文件txt不存在
+2026-03-18 17:35:04,686 - agent - ERROR - vector_store.py:113 - [加载知识库]文件txt处理失败，Error loading txt
+Traceback (most recent call last):
+  File "C:\Users\李韦宸\.conda\envs\flask-env\Lib\site-packages\langchain_community\document_loaders\text.py", line 42, in lazy_load
+    with open(self.file_path, encoding=self.encoding) as f:
+         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'txt'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\python\AI大模型RAG与智能体开发_Agent项目\RAG\vector_store.py", line 93, in load_document
+    documents: list[Document] = get_file_documents(path)
+                                ~~~~~~~~~~~~~~~~~~^^^^^^
+  File "D:\python\AI大模型RAG与智能体开发_Agent项目\RAG\vector_store.py", line 72, in get_file_documents
+    return text_loader(read_path)
+  File "D:\python\AI大模型RAG与智能体开发_Agent项目\utils\file_handler.py", line 84, in text_loader
+    return TextLoader(filepath).load()
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\李韦宸\.conda\envs\flask-env\Lib\site-packages\langchain_core\document_loaders\base.py", line 43, in load
+    return list(self.lazy_load())
+  File "C:\Users\李韦宸\.conda\envs\flask-env\Lib\site-packages\langchain_community\document_loaders\text.py", line 58, in lazy_load
+    raise RuntimeError(f"Error loading {self.file_path}") from e
+RuntimeError: Error loading txt
+2026-03-18 17:35:04,690 - agent - ERROR - file_handler.py:22 - [md5计算]文件pdf不存在
+2026-03-18 17:35:04,691 - agent - ERROR - vector_store.py:113 - [加载知识库]文件pdf处理失败，File path pdf is not a valid file or url
+Traceback (most recent call last):
+  File "D:\python\AI大模型RAG与智能体开发_Agent项目\RAG\vector_store.py", line 93, in load_document
+    documents: list[Document] = get_file_documents(path)
+                                ~~~~~~~~~~~~~~~~~~^^^^^^
+  File "D:\python\AI大模型RAG与智能体开发_Agent项目\RAG\vector_store.py", line 74, in get_file_documents
+    return pdf_loader(read_path)
+  File "D:\python\AI大模型RAG与智能体开发_Agent项目\utils\file_handler.py", line 80, in pdf_loader
+    return PyPDFLoader(filepath, password).load()
+           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\李韦宸\.conda\envs\flask-env\Lib\site-packages\langchain_community\document_loaders\pdf.py", line 281, in __init__
+    super().__init__(file_path, headers=headers)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\李韦宸\.conda\envs\flask-env\Lib\site-packages\langchain_community\document_loaders\pdf.py", line 140, in __init__
+    raise ValueError("File path %s is not a valid file or url" % self.file_path)
+ValueError: File path pdf is not a valid file or url
+2026-03-18 17:37:57,485 - agent - ERROR - vector_store.py:114 - [加载知识库]文件D:\python\AI大模型RAG与智能体开发_Agent项目\data\扫地机器人100问.pdf处理失败，`pypdf` package not found, please install it with `pip install pypdf`
+Traceback (most recent call last):
+  File "C:\Users\李韦宸\.conda\envs\flask-env\Lib\site-packages\langchain_community\document_loaders\parsers\pdf.py", line 359, in lazy_parse
+    import pypdf
+ModuleNotFoundError: No module named 'pypdf'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\python\AI大模型RAG与智能体开发_Agent项目\RAG\vector_store.py", line 94, in load_document
+    documents: list[Document] = get_file_documents(path)
+                                ~~~~~~~~~~~~~~~~~~^^^^^^
+  File "D:\python\AI大模型RAG与智能体开发_Agent项目\RAG\vector_store.py", line 74, in get_file_documents
+    return pdf_loader(read_path)
+  File "D:\python\AI大模型RAG与智能体开发_Agent项目\utils\file_handler.py", line 80, in pdf_loader
+    return PyPDFLoader(filepath, password).load()
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\李韦宸\.conda\envs\flask-env\Lib\site-packages\langchain_core\document_loaders\base.py", line 43, in load
+    return list(self.lazy_load())
+  File "C:\Users\李韦宸\.conda\envs\flask-env\Lib\site-packages\langchain_community\document_loaders\pdf.py", line 305, in lazy_load
+    yield from self.parser.lazy_parse(blob)
+  File "C:\Users\李韦宸\.conda\envs\flask-env\Lib\site-packages\langchain_community\document_loaders\parsers\pdf.py", line 361, in lazy_parse
+    raise ImportError(
+        "`pypdf` package not found, please install it with `pip install pypdf`"
+    )
+ImportError: `pypdf` package not found, please install it with `pip install pypdf`
+2026-03-18 17:38:04,769 - agent - INFO - vector_store.py:111 - [加载知识库]文件D:\python\AI大模型RAG与智能体开发_Agent项目\data\扫地机器人100问2.txt处理成功
+2026-03-18 17:38:15,550 - agent - INFO - vector_store.py:111 - [加载知识库]文件D:\python\AI大模型RAG与智能体开发_Agent项目\data\扫拖一体机器人100问.txt处理成功
+2026-03-18 17:38:31,293 - agent - INFO - vector_store.py:111 - [加载知识库]文件D:\python\AI大模型RAG与智能体开发_Agent项目\data\故障排除.txt处理成功
+2026-03-18 17:38:46,722 - agent - INFO - vector_store.py:111 - [加载知识库]文件D:\python\AI大模型RAG与智能体开发_Agent项目\data\扫地机器人100问.pdf处理成功
+2026-03-18 17:38:46,724 - agent - INFO - vector_store.py:91 - [加载知识库]文件D:\python\AI大模型RAG与智能体开发_Agent项目\data\扫地机器人100问2.txt已处理过，跳过
+2026-03-18 17:38:46,726 - agent - INFO - vector_store.py:91 - [加载知识库]文件D:\python\AI大模型RAG与智能体开发_Agent项目\data\扫拖一体机器人100问.txt已处理过，跳过
+2026-03-18 17:38:46,727 - agent - INFO - vector_store.py:91 - [加载知识库]文件D:\python\AI大模型RAG与智能体开发_Agent项目\data\故障排除.txt已处理过，跳过
+2026-03-18 17:38:55,031 - agent - INFO - vector_store.py:111 - [加载知识库]文件D:\python\AI大模型RAG与智能体开发_Agent项目\data\维护保养.txt处理成功
+2026-03-18 17:39:02,328 - agent - INFO - vector_store.py:111 - [加载知识库]文件D:\python\AI大模型RAG与智能体开发_Agent项目\data\选购指南.txt处理成功
+2026-03-18 17:40:11,523 - agent - INFO - vector_store.py:111 - [加载知识库]文件D:\python\AI大模型RAG与智能体开发_Agent项目\data\扫地机器人100问.pdf处理成功
+2026-03-18 17:40:18,535 - agent - INFO - vector_store.py:111 - [加载知识库]文件D:\python\AI大模型RAG与智能体开发_Agent项目\data\扫地机器人100问2.txt处理成功
+2026-03-18 17:40:27,461 - agent - INFO - vector_store.py:111 - [加载知识库]文件D:\python\AI大模型RAG与智能体开发_Agent项目\data\扫拖一体机器人100问.txt处理成功
+2026-03-18 17:40:42,151 - agent - INFO - vector_store.py:111 - [加载知识库]文件D:\python\AI大模型RAG与智能体开发_Agent项目\data\故障排除.txt处理成功
+2026-03-18 17:40:52,098 - agent - INFO - vector_store.py:111 - [加载知识库]文件D:\python\AI大模型RAG与智能体开发_Agent项目\data\维护保养.txt处理成功
+2026-03-18 17:40:59,426 - agent - INFO - vector_store.py:111 - [加载知识库]文件D:\python\AI大模型RAG与智能体开发_Agent项目\data\选购指南.txt处理成功
+2026-03-18 17:41:09,541 - agent - INFO - vector_store.py:91 - [加载知识库]文件D:\python\AI大模型RAG与智能体开发_Agent项目\data\扫地机器人100问.pdf已处理过，跳过
+2026-03-18 17:41:09,543 - agent - INFO - vector_store.py:91 - [加载知识库]文件D:\python\AI大模型RAG与智能体开发_Agent项目\data\扫地机器人100问2.txt已处理过，跳过
+2026-03-18 17:41:09,544 - agent - INFO - vector_store.py:91 - [加载知识库]文件D:\python\AI大模型RAG与智能体开发_Agent项目\data\扫拖一体机器人100问.txt已处理过，跳过
+2026-03-18 17:41:09,545 - agent - INFO - vector_store.py:91 - [加载知识库]文件D:\python\AI大模型RAG与智能体开发_Agent项目\data\故障排除.txt已处理过，跳过
+2026-03-18 17:41:09,547 - agent - INFO - vector_store.py:91 - [加载知识库]文件D:\python\AI大模型RAG与智能体开发_Agent项目\data\维护保养.txt已处理过，跳过
+2026-03-18 17:41:09,548 - agent - INFO - vector_store.py:91 - [加载知识库]文件D:\python\AI大模型RAG与智能体开发_Agent项目\data\选购指南.txt已处理过，跳过
+2026-03-18 20:46:29,189 - agent - WARNING - agent_tools.py:110 - [外部数据]未找到用户1021在2025-01的记录
+2026-03-18 20:46:56,036 - agent - WARNING - agent_tools.py:110 - [外部数据]未找到用户101在2025-01的记录
+2026-03-18 22:55:26,329 - agent - INFO - middleware.py:46 - [log_before_model]即将调用模型：带有1条消息
+2026-03-18 22:55:26,330 - agent - DEBUG - middleware.py:47 - [log_before_model]HumanMessage | 扫地机器人在我所在的地区的气温下如何保养
+2026-03-18 22:55:33,610 - agent - INFO - middleware.py:23 - [tool monitor]执行工具：get_user_location
+2026-03-18 22:55:33,610 - agent - INFO - middleware.py:24 - [tool monitor]传入参数：{}
+2026-03-18 22:55:33,611 - agent - INFO - middleware.py:27 - [tool monitor]工具get_user_location调用成功
+2026-03-18 22:55:33,612 - agent - INFO - middleware.py:46 - [log_before_model]即将调用模型：带有3条消息
+2026-03-18 22:55:33,612 - agent - DEBUG - middleware.py:47 - [log_before_model]ToolMessage | 杭州
+2026-03-18 22:55:38,455 - agent - INFO - middleware.py:23 - [tool monitor]执行工具：get_weather
+2026-03-18 22:55:38,455 - agent - INFO - middleware.py:24 - [tool monitor]传入参数：{'city': '杭州'}
+2026-03-18 22:55:38,456 - agent - INFO - middleware.py:27 - [tool monitor]工具get_weather调用成功
+2026-03-18 22:55:38,457 - agent - INFO - middleware.py:46 - [log_before_model]即将调用模型：带有5条消息
+2026-03-18 22:55:38,457 - agent - DEBUG - middleware.py:47 - [log_before_model]ToolMessage | 城市杭州天气为晴天，温度为25度，空气湿度为60%，南风一级，AQI21，最近六小时概率极低
+2026-03-18 22:55:50,048 - agent - INFO - middleware.py:23 - [tool monitor]执行工具：rag_summarize
+2026-03-18 22:55:50,048 - agent - INFO - middleware.py:24 - [tool monitor]传入参数：{'query': '扫地机器人在25度60%湿度环境下的保养方法'}
+2026-03-18 22:55:52,979 - agent - INFO - middleware.py:27 - [tool monitor]工具rag_summarize调用成功
+2026-03-18 22:55:52,981 - agent - INFO - middleware.py:46 - [log_before_model]即将调用模型：带有7条消息
+2026-03-18 22:55:52,981 - agent - DEBUG - middleware.py:47 - [log_before_model]ToolMessage | 无参考资料，无法提供基于资料的保养方法。
+2026-03-18 22:55:55,419 - agent - INFO - middleware.py:23 - [tool monitor]执行工具：rag_summarize
+2026-03-18 22:55:55,419 - agent - INFO - middleware.py:24 - [tool monitor]传入参数：{'query': '扫地机器人日常保养维护方法'}
+2026-03-18 22:55:58,686 - agent - INFO - middleware.py:27 - [tool monitor]工具rag_summarize调用成功
+2026-03-18 22:55:58,688 - agent - INFO - middleware.py:46 - [log_before_model]即将调用模型：带有9条消息
+2026-03-18 22:55:58,688 - agent - DEBUG - middleware.py:47 - [log_before_model]ToolMessage | 无参考资料，无法提供基于资料的总结。
+2026-03-18 23:05:45,545 - agent - INFO - middleware.py:46 - [log_before_model]即将调用模型：带有1条消息
+2026-03-18 23:05:45,545 - agent - DEBUG - middleware.py:47 - [log_before_model]HumanMessage | 扫地机器人在我所在的地区的气温下如何保养
+2026-03-18 23:05:49,377 - agent - INFO - middleware.py:23 - [tool monitor]执行工具：get_user_location
+2026-03-18 23:05:49,377 - agent - INFO - middleware.py:24 - [tool monitor]传入参数：{}
+2026-03-18 23:05:49,378 - agent - INFO - middleware.py:27 - [tool monitor]工具get_user_location调用成功
+2026-03-18 23:05:49,379 - agent - INFO - middleware.py:46 - [log_before_model]即将调用模型：带有3条消息
+2026-03-18 23:05:49,379 - agent - DEBUG - middleware.py:47 - [log_before_model]ToolMessage | 西安
+2026-03-18 23:05:56,994 - agent - INFO - middleware.py:23 - [tool monitor]执行工具：get_weather
+2026-03-18 23:05:56,994 - agent - INFO - middleware.py:24 - [tool monitor]传入参数：{'city': '西安'}
+2026-03-18 23:05:56,995 - agent - INFO - middleware.py:27 - [tool monitor]工具get_weather调用成功
+2026-03-18 23:05:56,996 - agent - INFO - middleware.py:46 - [log_before_model]即将调用模型：带有5条消息
+2026-03-18 23:05:56,996 - agent - DEBUG - middleware.py:47 - [log_before_model]ToolMessage | 城市西安天气为晴天，温度为25度，空气湿度为60%，南风一级，AQI21，最近六小时概率极低
+2026-03-18 23:06:02,238 - agent - INFO - middleware.py:23 - [tool monitor]执行工具：rag_summarize
+2026-03-18 23:06:02,239 - agent - INFO - middleware.py:24 - [tool monitor]传入参数：{'query': '扫地机器人在25度温度和60%湿度环境下的保养方法'}
+2026-03-18 23:06:05,501 - agent - INFO - middleware.py:27 - [tool monitor]工具rag_summarize调用成功
+2026-03-18 23:06:05,503 - agent - INFO - middleware.py:46 - [log_before_model]即将调用模型：带有7条消息
+2026-03-18 23:06:05,503 - agent - DEBUG - middleware.py:47 - [log_before_model]ToolMessage | 参考资料中未提及扫地机器人在25度温度和60%湿度环境下的具体保养方法。
+2026-03-18 23:06:10,809 - agent - INFO - middleware.py:23 - [tool monitor]执行工具：rag_summarize
+2026-03-18 23:06:10,809 - agent - INFO - middleware.py:24 - [tool monitor]传入参数：{'query': '扫地机器人日常保养维护方法'}
+2026-03-18 23:06:15,826 - agent - INFO - middleware.py:27 - [tool monitor]工具rag_summarize调用成功
+2026-03-18 23:06:15,827 - agent - INFO - middleware.py:46 - [log_before_model]即将调用模型：带有9条消息
+2026-03-18 23:06:15,828 - agent - DEBUG - middleware.py:47 - [log_before_model]ToolMessage | 定期清理滚刷和边刷上的缠绕物，清空尘盒并擦拭滤网，检查并清理传感器和充电触点，避免在潮湿或有水区域使用，长时间不用时应关闭电源并存放于干燥处。

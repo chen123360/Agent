@@ -1,0 +1,21 @@
+# 向量存储的配置文件
+
+# 向量库名
+collection_name: agent
+# 向量存储目录
+persist_directory: chroma_db
+# 向量检索匹配几个结果
+k: 3
+# 数据文件夹
+data_path: data
+# 记录哪些文件被md5处理过
+md5_hex_store: md5.text
+# 允许哪些文件后缀被加载到数据库中
+allow_knowledge_file_type: ["txt", "pdf"]
+# 文本分割器使用的向量分片大小
+chunk_size: 200
+# 两个连续分片之间允许的重叠字符数
+chunk_overlap: 20
+# 分割文本的分隔符
+separators: ["\n\n", "\n", ".", "!", "?", "。", "！", "？", " ", ""]
+

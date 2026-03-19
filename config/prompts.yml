@@ -1,0 +1,16 @@
+# 提示词配置项
+
+# 在我们的项目中，要配置三个提示词
+# 1.主提示词/系统提示词
+# 2.总结提示词
+# 3.测试报告提示词
+
+# 主提示词
+main_prompt_path: prompts/main_prompt.txt
+
+# 总结提示词
+rag_summarize_prompt_path: prompts/rag_summarize.txt
+
+# 测试报告提示词
+report_prompt_path: prompts/report_prompt.txt
+
