@@ -1,5 +1,5 @@
 """
-实现RAG总计服务的类
+实现RAG总结服务的类
 作用：用户提问，搜索参考资料，将提问和参考资料提交给模型，让模型总结回复
 """
 from langchain_core.documents import Document
@@ -16,6 +16,7 @@ def print_prompt(prompt):
     print("="*20)
     return  prompt
 
+# 构建RAG总结服务的类
 class RagSummarizeService(object):
     def __init__(self):
         # 创建向量存储对象
@@ -28,7 +29,7 @@ class RagSummarizeService(object):
         self.prompt_template = PromptTemplate.from_template(self.prompt_text)
         # 创建模型对象
         self.model = chat_model
-        # 创建rag当前执行的链对象--它需要写一个函数 ._init_chain
+        # 创建rag当前执行的链对象--它需要写一个方法 ._init_chain
         self.chain = self._init_chain()
 
     def _init_chain(self):

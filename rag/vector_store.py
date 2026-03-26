@@ -75,14 +75,14 @@ class VectorStoreService:
             # 如果哪种类型都不是，那么返回空列表表示什么都没读到
             return []
 
-        # 调用返回文件夹内的指定文件类型的文件列表函数，拿到允许类型的文件列表
+        # 调用返回文件夹内的指定文件类型的文件路径列表函数，拿到允许类型的文件路径列表
         allowed_file_path: list[str] = listdir_with_allowed_type(
             # 要使用绝对路径不然报错
             get_abs_path(chroma_conf["data_path"]),
             tuple(chroma_conf["allow_knowledge_file_type"])
         )
 
-        # 对文件列表进行遍历
+        # 对文件路径列表进行遍历
         for path in allowed_file_path:
             # 获取文件的MD5
             md5_hex = get_file_md5_hex(path)
@@ -100,6 +100,7 @@ class VectorStoreService:
                 if not split_document:
                     logger.info(f"[加载知识库]文件{path}分片后没有有效内容，跳过")
                     continue
+
 
                 # 将内容存入向量库
                 self.vector_store.add_documents(split_document)

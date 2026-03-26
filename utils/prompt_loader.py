@@ -1,5 +1,5 @@
 """
-提示词加载工具
+提示词模板加载工具
 """
 
 from utils.config_handler import prompts_conf

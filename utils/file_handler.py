@@ -28,7 +28,7 @@ def get_file_md5_hex(filepath: str):
         logger.error(f"[md5计算]路径{filepath}不是文件")
         return None
 
-    # 计算文件的MD5并赋值给md5_obj
+    # 创建md5计算器对象
     md5_obj = hashlib.md5()
 
     # 为了避免文件比较大，计算md5的时候，我们应该分片加载，流式的更新md5值
@@ -55,11 +55,11 @@ def get_file_md5_hex(filepath: str):
         logger.error(f"计算文件{filepath}md5失败，{str(e)}")
         return  None
 
-# 返回文件夹内的指定文件类型的文件列表
+# 返回文件夹内的指定文件类型的文件路径列表
 # allowed_type: tuple[str] 要返回的文件类型，用元组存储，比如(".pdf", ".txt")
 def listdir_with_allowed_type(path: str, allowed_types: tuple[str]):
-    # 思路：传入文件路径，这个路径是个文件夹，然后我们应该在文件夹中，遍历所有文件，判断文件类型，然后返回指定类型的文件列表
-    # 创建空列表存储要返回的文件
+    # 思路：传入文件路径，这个路径是个文件夹，然后我们应该在文件夹中，遍历所有文件，判断文件类型，然后返回指定类型的文件路径列表
+    # 创建空列表存储要返回的文件路径
     files = []
     # 先判断是否为文件夹
     if not os.path.isdir(path):
@@ -70,7 +70,7 @@ def listdir_with_allowed_type(path: str, allowed_types: tuple[str]):
     for f in os.listdir(path):
         # endswith 文件以什么结尾（就是文件是什么类型）
         if f.endswith(allowed_types):
-            # 添加完整的文件路径到列表中
+            # 把文件名和文件夹路径结合添加完整的文件路径到列表中
             files.append(os.path.join(path, f))
     # 在返回文件列表时，我们怕文件列表被动态修改，所以我们以元组形式返回
     return  tuple(files)

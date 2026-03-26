@@ -1,6 +1,5 @@
 """
 存放agent所有工具的代码
-
 """
 
 from langchain_core.tools import tool
@@ -10,14 +9,11 @@ from utils.config_handler import agent_conf
 from utils.path_tool import get_abs_path
 from utils.logger_handler import logger
 
-# 全局变量
-external_data = {}
-
 # rag 总结服务的类对象
 rag = RagSummarizeService()
 
-# rag 向量的总结服务
-# description 是必须要写额，不然会报错
+# rag 总结服务
+# description 是必须要写，不然会报错
 @tool(description="从向量存储中检索参考资料")
 def rag_summarize(query: str) -> str:
     return rag.rag_summarize(query)
@@ -46,8 +42,11 @@ month_arr = ["2025-01", "2025-02", "2025-03", "2025-04", "2025-05", "2025-06", "
 def get_current_month() -> str:
     return random.choice(month_arr)
 
-# 生成外部数据
-def generate_external_data() -> str:
+# 全局变量
+external_data = {}
+
+# 获取外部数据
+def generate_external_data():
     """
     根据数据文件来看，我们需要组装返回结果，格式为：
     {
@@ -99,7 +98,7 @@ def generate_external_data() -> str:
 # 所以我们要实现一个工具能从外部系统里面加载这个CSV然后拿到所需要的原始信息
 @tool(description="从外部系统获取指定用户在指定月份的使用记录，以纯字符串的形式返回，如果未检索到则返回空字符串")
 def fetch_external_data(user_id: str, month: str) -> str:
-    # 对于从外部系统加载数据，我们需要有一个工具函数 def generate_external_data() -> str: 的支持，考虑写在一起太臃肿，所以分开写
+    # 对于从外部系统加载数据，我们需要有一个工具函数 def generate_external_data(): 的支持，考虑写在一起太臃肿，所以分开写
     # 调用函数生成数据字典
     generate_external_data()
 

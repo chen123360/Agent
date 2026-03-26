@@ -1,7 +1,7 @@
 """
 路径工具
 为整个工程提供统一的绝对路径
-不使用相对工具是因为怕在解析相对路径时报错，那么会找不到数据
+不使用相对路径是因为怕在解析相对路径时报错，那么会找不到数据
 
 实现的过程
 获取工程所在的根目录
@@ -38,4 +38,4 @@ def get_abs_path(relative_path: str) -> str:
 
 # 测试
 if __name__ == '__main__':
-    print(get_abs_path('config/config.txt'))
+    print(get_abs_path('logs'))

@@ -16,7 +16,7 @@ class ReactAgent:
 
     # 流式执行
     def execute_stream(self, query: str):
-        # 组装输入
+        # 组装输入--字典里面套消息
         input_dict = {
             "messages": [
                 {"role": "user", "content": query}
